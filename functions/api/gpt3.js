@@ -4,6 +4,7 @@ export async function onRequestPost(context) {
         const { headers } = request;
         const contentType = headers.get('content-type') || '';
     } catch (error) {
+        error = 'parse req error: ' + error + request.toString();
         return new Response(error, { status: 500 });
     }
     
