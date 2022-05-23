@@ -8,11 +8,9 @@ export async function onRequestPost(context) {
 
         if (contentType.includes('form')) {
             const formData = await request.formData();
-            var data = {
-                "max_tokens": 5};
             formData.forEach((value, key) => data[key] = value);
         } else if (contentType.includes('json')) {
-            const data = await request.json();
+            var data = await request.json();
         } else {
             return new Response('Invalid request', { status: 400 });
         }
@@ -31,7 +29,7 @@ export async function onRequestPost(context) {
         result.localtime = new Date().toLocaleString();
         return new Response(JSON.stringify(result));
     } catch (error) {
-        return new Response(error + error.stack, { status: 500 });
+        return new Response(error.stack, { status: 500 });
     }
 
 }
