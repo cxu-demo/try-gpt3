@@ -14,9 +14,12 @@
       },
       body: JSON.stringify(data)
     });
+    
     const result = await response.json();
     results.unshift(result);
-    console.log(result);
+    results = results;
+
+    console.log(results.length, result);
     return result;
   }
 </script>
