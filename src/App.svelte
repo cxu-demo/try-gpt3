@@ -50,7 +50,7 @@
   {#each results as result}
     <div class="result-content">
     <details>
-      <summary>"{result.prompt.slice(0,50)} ..." <br>at {result.localtime} using {result.model}</summary>
+      <summary>"{result.prompt.slice(0,50)} ..." <br>at {result.timestamp.toLocaleString()} using {result.model}</summary>
       <p>{result.choices[0].text}</p>
     </details>
     </div>

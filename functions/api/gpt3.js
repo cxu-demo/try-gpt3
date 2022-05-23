@@ -24,7 +24,7 @@ export async function onRequestPost(context) {
            });
         const result = await APIresponse.json();
         result.prompt = data.prompt;
-        result.localtime = new Date().toLocaleString();
+        result.timestamp = new Date();
         return new Response(JSON.stringify(result));
     } catch (error) {
         return new Response(error.stack, { status: 500 });
