@@ -23,7 +23,7 @@
     // document.querySelector(".result-content details").open = true;
     return result;
   }
-  let ifDetailsOpen = (index) => index ==1 ? "yes" : null;
+  let ifDetailsOpen = (index) => index ==0 ? "yes" : null;
 </script>
 
 <svelte:head>
