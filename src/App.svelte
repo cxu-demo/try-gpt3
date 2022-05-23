@@ -23,7 +23,7 @@
     // document.querySelector(".result-content details").open = true;
     return result;
   }
-  ifDetailsOpen = (index) => `open=""` ? index ==1 : "";
+  let ifDetailsOpen = (index) => `open=""` ? index ==1 : null;
 </script>
 
 <svelte:head>
@@ -48,9 +48,9 @@
 <h2> Results </h2>
 <div class="result-section">
   <!-- render list-alike -->
-  {#each results as result}
+  {#each results as result, index}
     <div class="result-content">
-    <details>
+    <details open={ifDetailsOpen(index)}>
       <summary>"{result.prompt.slice(0,50)} ..." <br>at {result.timestamp.toLocaleString()} using {result.model}</summary>
       <p>{result.choices[0].text}</p>
     </details>
