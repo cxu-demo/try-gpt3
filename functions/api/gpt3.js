@@ -25,4 +25,4 @@ export async function onRequestPost(request) {
     result.prompt = data.prompt;
     result.localtime = new Date().toLocaleString();
     return new Response(JSON.stringify(result));
-    }
+}
