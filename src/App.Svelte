@@ -1,12 +1,18 @@
 <script>
   const site = {"title": "Try GPT3"};
   const results = [];
-  async function submitForm() {
-    const response = await fetch("/api/data", {
+  async function submitForm(e) {
+    const formData = new FormData(e.target);
+    const data = {
+
+    };
+    formData.forEach((value, key) => data[key] = value);
+    const response = await fetch("/api/gpt3", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      body: JSON.stringify(data)
     });
     const result = await response.json();
     results.unshift(result);
@@ -26,7 +32,7 @@
 
   <h1>PLay with GPT-3 AI</h1>
   <form on:submit|preventDefault={submitForm}>
-    <label for="prompt">Type what you want here:</label>
+    <label for="prompt">Complete your unfinied sentence:</label>
     <textarea name="prompt" id="prompt" placeholder="Say this is a test..."></textarea>
     <input type="submit" value="Submit">
     <input type="reset" value="Reset">

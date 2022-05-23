@@ -4,7 +4,8 @@ export async function onRequestPost(request) {
 
     if (contentType.includes('form')) {
         const formData = await request.formData();
-        var data = {};
+        var data = {
+            "max_tokens": 5};
         formData.forEach((value, key) => data[key] = value);
     } else if (contentType.includes('json')) {
         const data = await request.json();
@@ -12,7 +13,7 @@ export async function onRequestPost(request) {
         return new Response('Invalid request', { status: 400 });
     }
 
-    const APIresponse = await fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
+    const APIresponse = await fetch("https://api.openai.com/v1/engines/text-ada-001/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
