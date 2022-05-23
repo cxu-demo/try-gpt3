@@ -1,5 +1,6 @@
-export async function onRequestPost(request) {
+export async function onRequestPost(context) {
     try {
+        const { request } = context;
         const { headers } = request;
         const contentType = headers.get('content-type') || '';
     } catch (error) {
