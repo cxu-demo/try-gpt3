@@ -1,7 +1,7 @@
 <script>
   const site = {"title": "Try GPT3"};
   const results = [];
-  async function submitForm(e) {
+  function submitForm(e) {
     const formData = new FormData(e.target);
     const data = {
 
@@ -50,4 +50,3 @@
     </div>
   {/each}
   </div>
-  
