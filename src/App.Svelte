@@ -30,6 +30,7 @@
 </svelte:head>
 
 
+<main>
   <h1>PLay with GPT-3 AI</h1>
   <form on:submit|preventDefault={submitForm}>
     <label for="prompt">Complete your unfinied sentence:</label>
@@ -50,4 +51,5 @@
     </div>
   {/each}
   </div>
-  
+
+</main>
