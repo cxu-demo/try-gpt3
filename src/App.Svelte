@@ -1,8 +1,22 @@
-
+<script>
+  const site = {"title": "Try GPT3"};
+  const results = [];
+  async function submitForm() {
+    const response = await fetch("/api/data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    const result = await response.json();
+    results.unshift(result);
+    return result;
+  }
+</script>
 
 <svelte:head>
-	<title>{data.title.name}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+	<title>{site.title}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 
   <meta property="og:title" content="PLay with GPT-3 AI">
   <meta property="og:type" content="website">
@@ -11,5 +25,22 @@
 
 
   <h1>PLay with GPT-3 AI</h1>
-  <label for="prompt">Type what you want here:</label>
-  <textarea name="prompt" id="prompt" placeholder="I am so cool..."></textarea>
+  <form on:submit|preventDefault={onSubmit}>
+    <label for="prompt">Type what you want here:</label>
+    <textarea name="prompt" id="prompt" placeholder="Say this is a test..."></textarea>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </form>
+
+<h2> Results </h2>
+<div class="result-section">
+  <!-- render list-alike -->
+  {#each results as result}
+    <div class="result-content">
+    <details>
+      <summary>{result.prompt.slice(0,10)} ... at {result.localtime} using {result.model}</summary>
+      <p>{result.choices[0].text}</p>
+    </details>
+    </div>
+  {/each}
+  </div>
