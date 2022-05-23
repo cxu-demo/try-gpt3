@@ -51,5 +51,4 @@
     </div>
   {/each}
   </div>
-
-</main>
+  
