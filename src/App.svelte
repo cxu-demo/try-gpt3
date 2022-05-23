@@ -20,7 +20,7 @@
     results = results;
 
     console.log(results.length, result);
-    document.querySelector(".result-content").open = true;
+    document.querySelector(".result-content details").open = true;
     return result;
   }
 </script>
