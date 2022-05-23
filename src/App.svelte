@@ -14,7 +14,7 @@
       },
       body: JSON.stringify(data)
     });
-    
+
     const result = await response.json();
     results.unshift(result);
     results = results;
@@ -37,7 +37,7 @@
 <main>
   <h1>PLay with GPT-3 AI</h1>
   <form on:submit|preventDefault={submitForm}>
-    <label for="prompt">Complete your unfinied sentence:</label>
+    <label for="prompt">Complete your unfinished sentence:</label>
     <textarea name="prompt" id="prompt" placeholder="Say this is a test..."></textarea>
     <input type="submit" value="Submit">
     <input type="reset" value="Reset">
@@ -49,7 +49,7 @@
   {#each results as result}
     <div class="result-content">
     <details>
-      <summary>{result.prompt.slice(0,10)} ... at {result.localtime} using {result.model}</summary>
+      <summary>{result.prompt.slice(0,50)} ... <br>at {result.localtime} using {result.model}</summary>
       <p>{result.choices[0].text}</p>
     </details>
     </div>
