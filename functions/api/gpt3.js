@@ -3,8 +3,6 @@ export async function onRequestPost(context) {
         const { request ,env } = context;
         const { headers } = request;
         const contentType = headers.get('content-type') || '';
-   
-
 
         if (contentType.includes('form')) {
             const formData = await request.formData();

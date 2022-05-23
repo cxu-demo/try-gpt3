@@ -16,6 +16,7 @@
     });
     const result = await response.json();
     results.unshift(result);
+    console.log(result);
     return result;
   }
 </script>
