@@ -39,7 +39,7 @@
 <main>
   <h1>PLay with GPT-3 AI</h1>
   <form on:submit|preventDefault={submitForm}>
-    <label for="prompt">Complete your unfinished sentence:</label>
+    <label for="prompt">Put your incomplete sentence here, and let AI to complete it:</label>
     <textarea name="prompt" id="prompt" placeholder="Say this is a test..."></textarea>
     <input type="submit" value="Submit">
     <input type="reset" value="Reset">
