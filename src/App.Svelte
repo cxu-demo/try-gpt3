@@ -25,7 +25,7 @@
 
 
   <h1>PLay with GPT-3 AI</h1>
-  <form on:submit|preventDefault={onSubmit}>
+  <form on:submit|preventDefault={submitForm}>
     <label for="prompt">Type what you want here:</label>
     <textarea name="prompt" id="prompt" placeholder="Say this is a test..."></textarea>
     <input type="submit" value="Submit">
