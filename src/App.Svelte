@@ -1,10 +1,10 @@
 <script>
   const site = {"title": "Try GPT3"};
   const results = [];
-  function submitForm(e) {
+  async function submitForm(e) {
     const formData = new FormData(e.target);
     const data = {
-
+      "max_tokens":5
     };
     formData.forEach((value, key) => data[key] = value);
     const response = await fetch("/api/gpt3", {
@@ -50,3 +50,4 @@
     </div>
   {/each}
   </div>
+  
