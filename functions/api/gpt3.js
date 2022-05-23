@@ -1,6 +1,11 @@
 export async function onRequestPost(request) {
-    const { headers } = request;
-    const contentType = headers.get('content-type') || '';
+    try {
+        const { headers } = request;
+        const contentType = headers.get('content-type') || '';
+    } catch (error) {
+        return new Response(error, { status: 500 });
+    }
+    
 
     try {
         if (contentType.includes('form')) {
