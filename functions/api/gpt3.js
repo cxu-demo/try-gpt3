@@ -3,13 +3,9 @@ export async function onRequestPost(context) {
         const { request } = context;
         const { headers } = request;
         const contentType = headers.get('content-type') || '';
-    } catch (error) {
-        error = 'parse req error: ' + error + request.toString();
-        return new Response(error, { status: 500 });
-    }
-    
+   
 
-    try {
+
         if (contentType.includes('form')) {
             const formData = await request.formData();
             var data = {
@@ -20,12 +16,8 @@ export async function onRequestPost(context) {
         } else {
             return new Response('Invalid request', { status: 400 });
         }
-    } catch (error) {
-        return new Response(error, { status: 500 });
-    }
 
 
-    try {
         const APIresponse = await fetch("https://api.openai.com/v1/engines/text-ada-001/completions", {
             method: "POST",
             headers: {
@@ -39,7 +31,7 @@ export async function onRequestPost(context) {
         result.localtime = new Date().toLocaleString();
         return new Response(JSON.stringify(result));
     } catch (error) {
-        return new Response(error, { status: 500 });
+        return new Response(error + error.stack, { status: 500 });
     }
 
 }
