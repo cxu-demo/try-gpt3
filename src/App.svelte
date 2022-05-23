@@ -20,9 +20,10 @@
     results = results;
 
     console.log(results.length, result);
-    document.querySelector(".result-content details").open = true;
+    // document.querySelector(".result-content details").open = true;
     return result;
   }
+  ifDetailsOpen = (index) => `open=""` ? index ==1 : "";
 </script>
 
 <svelte:head>
