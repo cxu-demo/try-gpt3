@@ -1,6 +1,6 @@
 export async function onRequestPost(context) {
     try {
-        const { request } = context;
+        const { request ,env } = context;
         const { headers } = request;
         const contentType = headers.get('content-type') || '';
    
@@ -22,7 +22,7 @@ export async function onRequestPost(context) {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "Authorization": `Bearer ${process.env.OPENAI_SECRET}`,
+              "Authorization": `Bearer ${env.OPENAI_SECRET}`,
             },
             body: JSON.stringify(data),
            });
